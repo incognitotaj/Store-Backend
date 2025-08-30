@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Authorization;
 using Store.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Store.Application.Abstractions.Data;

@@ -7,7 +7,6 @@ using Store.Domain.Primitives;
 namespace Store.Infrastructure.Database;
 
 public sealed class ApiDbContext(
-    IOptions<ApiDbContextOptions> apiDbContextOptions,
     //IDomainEventsDispatcher domainEventsDispatcher,
     DbContextOptions<ApiDbContext> options)
     : DbContext(options), IApiDbContext
@@ -19,7 +18,7 @@ public sealed class ApiDbContext(
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApiDbContext).Assembly);
-        modelBuilder.HasDefaultSchema(apiDbContextOptions.Value.DefaultSchema);
+        //modelBuilder.HasDefaultSchema(apiDbContextOptions.Value.DefaultSchema);
     }
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
