@@ -29,6 +29,15 @@ public class Program
 
         app.UseHttpsRedirection();
 
+        app.UseCors(options =>
+        {
+            options
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .WithExposedHeaders("X-Total-Count");
+        });
+
         app.UseAuthentication();
 
         app.UseAuthorization();

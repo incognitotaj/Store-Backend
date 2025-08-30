@@ -10,6 +10,12 @@ internal static class ServiceCollectionExtensions
     {
         services.AddSwaggerGen(o =>
         {
+            o.SwaggerDoc("v1", new()
+            {
+                Version = "v1",
+                Title = "Stores API"
+            });
+
             o.CustomSchemaIds(id => id.FullName!.Replace('+', '-'));
 
             var securityScheme = new OpenApiSecurityScheme
