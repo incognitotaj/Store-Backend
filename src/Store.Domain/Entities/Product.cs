@@ -9,7 +9,7 @@ public class Product : Entity
 
     public Guid CategoryId { get; private set; }
     
-    public Product(Guid id, string name, decimal price, Guid categoryId) : base(id)
+    private Product(Guid id, string name, decimal price, Guid categoryId) : base(id)
     {
         Name = name;
         Price = price;
@@ -21,5 +21,10 @@ public class Product : Entity
         this.Name = default!;
         this.Price = default!;
         this.CategoryId = default!;
+    }
+
+    public static Product Create(Guid id, string name, decimal price, Guid categoryId)
+    {
+        return new Product(id, name, price, categoryId);
     }
 }

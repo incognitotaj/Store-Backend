@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Store.Infrastructure.Database;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
 
 namespace Store.Api.Controllers
@@ -8,8 +6,7 @@ namespace Store.Api.Controllers
     [ApiController]
     [Consumes(MediaTypeNames.Application.Json)]
     [Produces(MediaTypeNames.Application.Json)]
-    public abstract class BaseApiController(ApiDbContext db) : ControllerBase
+    public abstract class BaseApiController
     {
-        protected ApiDbContext Db { get; } = db;
     }
 }
